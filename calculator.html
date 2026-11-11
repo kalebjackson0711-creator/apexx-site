@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <!-- STATUS 2026-11-09: Missed-Call Revenue Calculator + SMS consent (form missed-call-calculator).
-       Netlify Forms (data-netlify + honeypot). Consent version calculator-sms-v1.0-2026-11-09.
+       Form posts to ApexX intake /web/form (2026-11-11; was Netlify Forms). Honeypot kept. Consent version calculator-sms-v1.0-2026-11-09.
        Phone on page: (937) 821-8963 only. Domain: apexxaiofficial.com only. -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Missed-Call Revenue Calculator — ApexX AI</title>
@@ -129,7 +129,7 @@
           <p class="sub" id="calcDetail">8 missed calls/week × $450 × ~4 weeks. Illustrative only — your mix will differ.</p>
         </div>
 
-        <form id="calcForm" name="missed-call-calculator" method="POST" action="/calculator?submitted=1" data-netlify="true" netlify-honeypot="bot-field">
+        <form id="calcForm" name="missed-call-calculator" method="POST" action="https://tripping-provolone-smokiness.ngrok-free.dev/web/form">
           <input type="hidden" name="form-name" value="missed-call-calculator" />
           <input type="hidden" name="source" value="apexxaiofficial.com/calculator" />
           <input type="hidden" name="form_version" value="calculator-sms-v1.0-2026-11-09" />
@@ -278,6 +278,25 @@
     if (/[?&]submitted=1/.test(window.location.search)) {
       showThanks();
     }
+  })();
+  </script>
+  <script>
+  /* 2026-11-11: Netlify Forms replaced. Posts to ApexX intake (/web/form); same relay gates (honeypot, IP rate, DNC, duplicate). */
+  (function () {
+    var f = document.getElementById("calcForm");
+    if (!f) return;
+    f.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var btn = f.querySelector("button[type=submit]"); if (btn) { btn.disabled = true; }
+      var d = {}; new FormData(f).forEach(function (v, k) { d[k] = v; });
+      d.page_url = location.href.split("?")[0];
+      fetch("https://tripping-provolone-smokiness.ngrok-free.dev/web/form", { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(d) })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); location.href = "/calculator?submitted=1"; })
+        .catch(function () {
+          if (btn) { btn.disabled = false; }
+          alert("Sorry, we couldn't submit the form just now. Please call (937) 821-8963 and we'll set you up right away.");
+        });
+    });
   })();
   </script>
 </body>
