@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Client Onboarding — ApexX AI</title>
+  <meta name="description" content="ApexX AI client onboarding: tell us about your business so we can set up your AI receptionist." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0B0B0B" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .onb{min-height:70vh;display:flex;align-items:center;padding:96px 0 72px;text-align:center}
+    .onb h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,7vw,80px);letter-spacing:1px;line-height:1;margin:0 0 16px;color:var(--white)}
+    .onb h1 span{color:var(--blood)}
+    .onb p{color:var(--text-muted);font-size:18px;max-width:620px;margin:0 auto 12px}
+    .onb .big{display:inline-block;margin:28px 0 18px;padding:20px 44px;font-size:22px;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:var(--blood);color:#fff;border-radius:var(--radius);text-decoration:none;box-shadow:0 0 32px var(--blood-glow)}
+    .onb .big:hover{background:var(--blood-deep)}
+    .onb ol{display:inline-block;text-align:left;color:var(--text-muted);margin:8px auto 0;line-height:1.8}
+    .onb small{display:block;color:var(--text-dim);margin-top:20px}
+    .onb small a{color:var(--white)}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a aria-label='ApexX AI home' class='logo' href='/'>
+        <span class="logo-mark" aria-hidden="true"><i>AX</i></span>
+        APEX<span>X</span> AI
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href='/'>Home</a>
+        <a href='/#pricing'>Pricing</a>
+        <a href='/get-started'>Get Started</a>
+        <a href="tel:+19378218963">Call Us</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-secondary" href="tel:+19378218963">Call Us</a>
+        <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSes6LP9qsd8QDXilxzX3rxifT7lkpXUbsYuEAu9gX7nf-RPhg/viewform">Start Onboarding</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+  <main class="onb">
+    <div class="container">
+      <h1>Welcome to <span>ApexX AI</span></h1>
+      <p>You're in. Fill out the short onboarding form so we can build your AI receptionist around your business, hours, and services.</p>
+      <a class="big" href="https://docs.google.com/forms/d/e/1FAIpQLSes6LP9qsd8QDXilxzX3rxifT7lkpXUbsYuEAu9gX7nf-RPhg/viewform" target="_blank" rel="noopener">Start onboarding →</a>
+      <div><ol>
+        <li>Complete the onboarding form (about 10 minutes).</li>
+        <li>We set up and test your AI receptionist.</li>
+        <li>We call you to review it before go-live.</li>
+      </ol></div>
+      <small>Questions? Call <a href="tel:+19378218963">(937) 821-8963</a></small>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:0;">
+        <span>© 2026 ApexX AI. All rights reserved.</span>
+        <div class="footer-legal-links">
+          <a href='/privacy'>Privacy</a>
+          <a href='/terms'>Terms</a>
+          <a href='/refund'>Refunds</a>
+        </div>
+      </div>
+    </div>
+  <div class="footer-industries" style="margin-top:8px">Industries: <a href='/hvac'>HVAC</a> · <a href='/plumbing'>Plumbing</a> · <a href='/roofing'>Roofing</a> · <a href='/dental'>Dental</a> · <a href='/pest'>Pest Control</a> · <a href='/legal'>Legal</a> · <a href='/vet'>Veterinary</a> · <a href='/chiro'>Chiropractic</a> · <a href='/med-spa'>Med Spa</a> · <a href='/auto'>Auto Repair</a></div>
+</footer>
+<a class="apexx-sticky-call" href="tel:+19378218963" aria-label="Call (937) 821-8963">&#128222; Call (937) 821-8963</a>
+<style>.apexx-sticky-call{position:fixed;right:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;gap:6px;padding:14px 20px;min-height:48px;border-radius:999px;background:#16a34a;color:#fff!important;font-weight:700;font-size:16px;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.3)}@media(max-width:640px){.apexx-sticky-call{left:12px;right:12px;bottom:12px;justify-content:center}body{padding-bottom:80px}}</style>
+</body>
+</html>

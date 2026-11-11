@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- STATUS 2026-11-05: READY FOR DEPLOY — PEWC consent form (form name pewc-consent).
+       Netlify Forms (data-netlify + honeypot). Archive this HTML with form_version v1.0-2026-11-05.
+       Phone on page: (937) 821-8963 only. Domain: apexxaiofficial.com only. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Request a Callback — ApexX AI</title>
+  <meta name="description" content="Stop losing jobs to missed calls. Tell ApexX AI about your shop and request a callback so you can hear how our AI receptionist answers." />
+  <link rel="canonical" href="https://apexxaiofficial.com/consent" />
+  <meta name="theme-color" content="#0B0B0B" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .consent-check {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin: 8px 0 4px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+    }
+    .consent-check input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      accent-color: var(--blood, #c41e3a);
+    }
+    .consent-check label {
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: var(--text-muted, #b8b8b8);
+      cursor: pointer;
+    }
+    .consent-check label strong { color: var(--white, #fff); font-weight: 600; }
+    .consent-note {
+      font-size: 0.85rem;
+      color: var(--text-muted, #b8b8b8);
+      margin: 0 0 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="call-strip">Talk to ApexX AI · <a href="tel:+19378218963">(937) 821-8963</a></div>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a aria-label="ApexX AI home" class="logo" href="/">
+        <span class="logo-mark" aria-hidden="true"><i>AX</i></span>
+        APEX<span>X</span> AI
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/get-started">Get Started</a>
+        <a class="active" href="/consent">Request Callback</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-secondary" href="tel:+19378218963">Call Us</a>
+        <a class="btn btn-primary" href="#consentForm">Request My Callback</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Callback request · No purchase required</p>
+        <h1>Stop losing jobs to missed calls.</h1>
+        <p class="legal-meta">Tell us about your shop. ApexX AI will call you back so you can hear how our AI receptionist answers.</p>
+      </div>
+    </div>
+
+    <div class="container gs-wrap">
+      <div class="steps" style="margin-bottom:32px;">
+        <div class="step"><h3>Share your shop details</h3><p>Name, trade, and how many calls you miss.</p></div>
+        <div class="step"><h3>Choose call consent</h3><p>Optional checkbox. Unchecked = email-only follow-up.</p></div>
+        <div class="step"><h3>We reach out</h3><p>Consented leads get a callback in window; others get email.</p></div>
+      </div>
+
+      <div class="success-box" id="successBox" role="status" aria-live="polite">
+        <h3 id="thanksTitle">Got it. Thanks.</h3>
+        <p id="thanksBody">If you checked the consent box, ApexX AI's assistant will call you within a few minutes, during 8am–9pm your local time. Otherwise we'll email you. To hear it answer now, call <a href="tel:+19378218963">(937) 821-8963</a>. Say "stop" on any call or reply STOP to any text to opt out.</p>
+        <p><a class="btn btn-secondary" href="/">Back to Home</a> <a class="btn btn-primary" href="tel:+19378218963">Call (937) 821-8963</a></p>
+      </div>
+
+      <div class="form-card" id="formCard">
+        <h2 class="h3" style="margin-bottom:8px;">Request a callback</h2>
+        <p style="color:var(--text-muted);margin-bottom:28px;font-size:0.98rem;">Required fields marked <span class="req">*</span>. Call/text consent is optional and unchecked by default.</p>
+        <form id="consentForm" name="pewc-consent" method="POST" action="/consent?submitted=1" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="pewc-consent" />
+          <input type="hidden" name="source" value="apexxaiofficial.com/consent" />
+          <input type="hidden" name="form_version" value="v1.0-2026-11-05" />
+          <input type="hidden" name="consent_text_verbatim" id="consentTextVerbatim" value="By checking this box, I agree that ApexX AI may call and text me at the phone number I provided about ApexX AI products and services, including calls and texts that use AI-generated or artificial/prerecorded voice and automated technology. Consent is not a condition of any purchase. I can opt out anytime by replying STOP to a text or saying &quot;stop&quot; on a call. Msg &amp; data rates may apply to texts. Message frequency varies. See our Privacy Policy and Terms." />
+          <p style="display:none;" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="full_name">Full name <span class="req">*</span></label>
+              <input id="full_name" name="full_name" type="text" required autocomplete="name" />
+            </div>
+            <div class="form-field">
+              <label for="business_name">Business name <span class="req">*</span></label>
+              <input id="business_name" name="business_name" type="text" required autocomplete="organization" />
+            </div>
+            <div class="form-field">
+              <label for="mobile_phone">Mobile phone <span class="req">*</span></label>
+              <input id="mobile_phone" name="mobile_phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="(555) 555-5555" />
+            </div>
+            <div class="form-field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="form-field">
+              <label for="trade">Trade <span class="req">*</span></label>
+              <select id="trade" name="trade" required>
+                <option value="">Select…</option>
+                <option>Plumbing</option>
+                <option>HVAC</option>
+                <option>Electrical</option>
+                <option>Roofing</option>
+                <option>Auto repair</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="missed_calls_week">Missed calls per week <span class="req">*</span></label>
+              <select id="missed_calls_week" name="missed_calls_week" required>
+                <option value="">Select…</option>
+                <option>0–5</option>
+                <option>6–15</option>
+                <option>16–30</option>
+                <option>30+</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+            <div class="form-field full">
+              <label for="best_time">Best time to reach you <span style="color:var(--text-muted);font-weight:400;">(optional)</span></label>
+              <select id="best_time" name="best_time">
+                <option value="">Select…</option>
+                <option>Morning</option>
+                <option>Afternoon</option>
+                <option>Evening</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-field full" style="margin-top:8px;">
+            <div class="consent-check">
+              <input type="checkbox" id="pewc_consent" name="pewc_consent" value="yes" />
+              <label for="pewc_consent">By checking this box, I agree that <strong>ApexX AI</strong> may call and text me at the phone number I provided about ApexX AI products and services, including calls and texts that use <strong>AI-generated or artificial/prerecorded voice</strong> and <strong>automated technology</strong>. <strong>Consent is not a condition of any purchase.</strong> I can opt out anytime by replying <strong>STOP</strong> to a text or <strong>saying "stop"</strong> on a call. Msg &amp; data rates may apply to texts. Message frequency varies. See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</label>
+            </div>
+            <p class="consent-note">Leave unchecked to submit as email-only. No AI call goes out unless you check the box. Texting stays off until A2P 10DLC is registered.</p>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Request My Callback</button>
+          </div>
+          <p class="form-hint">Human fields are required. The consent checkbox is optional and starts unchecked. Submissions are logged for PEWC compliance (IP, user agent, form version, consent text, checkbox state). Questions? Call <a href="tel:+19378218963">(937) 821-8963</a>.</p>
+        </form>
+      </div>
+
+      <p class="pricing-note" style="margin-top:32px;">Want to hear the AI receptionist now? Call <a href="tel:+19378218963">(937) 821-8963</a>. Or <a href="/get-started">get started at apexxaiofficial.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:0;">
+        <span>© 2026 ApexX AI. All rights reserved.</span>
+        <div class="footer-legal-links">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/refund">Refunds</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    var form = document.getElementById("consentForm");
+    if (form) {
+      form.addEventListener("submit", function () {
+        try {
+          var first = (document.getElementById("full_name").value || "").trim().split(/\s+/)[0] || "";
+          var phone = (document.getElementById("mobile_phone").value || "").trim();
+          var email = (document.getElementById("email").value || "").trim();
+          var checked = document.getElementById("pewc_consent").checked;
+          sessionStorage.setItem("pewc_thanks", JSON.stringify({
+            first: first,
+            phone: phone,
+            email: email,
+            checked: checked
+          }));
+        } catch (e) { /* ignore */ }
+      });
+    }
+
+    function showThanks() {
+      document.getElementById("formCard").style.display = "none";
+      document.getElementById("successBox").classList.add("show");
+      var data = null;
+      try { data = JSON.parse(sessionStorage.getItem("pewc_thanks") || "null"); } catch (e) { data = null; }
+      var title = document.getElementById("thanksTitle");
+      var body = document.getElementById("thanksBody");
+      var first = data && data.first ? data.first : "";
+      var phone = data && data.phone ? data.phone : "the number you provided";
+      var email = data && data.email ? data.email : "the email you provided";
+      title.textContent = first ? ("Got it. Thanks, " + first + ".") : "Got it. Thanks.";
+      if (data && data.checked) {
+        body.innerHTML = "ApexX AI's assistant will call you at <strong>" + escapeHtml(phone) + "</strong> within a few minutes, during 8am–9pm your local time. To hear it answer now, call <a href=\"tel:+19378218963\">(937) 821-8963</a>. Say \"stop\" on any call or reply STOP to any text to opt out.";
+      } else {
+        body.innerHTML = "We'll email you at <strong>" + escapeHtml(email) + "</strong>. No AI call goes out because call/text consent was not checked. To hear the receptionist now, call <a href=\"tel:+19378218963\">(937) 821-8963</a>. Say \"stop\" on any call or reply STOP to any text to opt out.";
+      }
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function (c) {
+        return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c];
+      });
+    }
+
+    if (/[?&]submitted=1/.test(window.location.search) || /[?&]consent=1/.test(window.location.search)) {
+      showThanks();
+    }
+  })();
+  </script>
+</body>
+</html>

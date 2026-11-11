@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=f98d71fc-b302-4979-8830-558d51bbf4f2
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get Started — ApexX AI</title>
+  <meta name="description" content="Tell ApexX AI about your business, then choose a Frontline or Apex Forge plan." />
+  <meta name="theme-color" content="#0B0B0B" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a aria-label='ApexX AI home' class='logo' href='/'>
+        <span class="logo-mark" aria-hidden="true"><i>AX</i></span>
+        APEX<span>X</span> AI
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href='/'>Home</a>
+        <a href='/#pricing'>Pricing</a>
+        <a class='active' href='/get-started'>Get Started</a>
+        <a href="tel:+19378218963">Call Us</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-secondary" href="tel:+19378218963">Call Us</a>
+        <a class="btn btn-primary" href="#step1">Get Started Now</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Onboarding path</p>
+        <h1>Get Started</h1>
+        <p class="legal-meta">Step 1 captures your lead by email. Step 2 is secure Stripe checkout. You can finish both now — or pay later. We still have your info.</p>
+      </div>
+    </div>
+
+    <div class="container gs-wrap">
+      <div class="gs-progress" aria-label="Progress">
+        <span class="gs-chip active" id="chip1">01 · Business info</span>
+        <span class="gs-chip" id="chip2">02 · Choose plan</span>
+      </div>
+
+      <div id="step1">
+        <div class="form-card">
+          <h2 class="h3" style="margin-bottom:8px;">Tell us about your business</h2>
+          <p style="color:var(--text-muted);margin-bottom:28px;font-size:0.98rem;">Required fields marked with <span style="color:var(--blood)">*</span>. Submitting opens your email client to send the lead to apexxaiofficial@apexxaiofficial.com.</p>
+          <form id="leadForm" novalidate>
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="businessName">Business name <span class="req">*</span></label>
+                <input id="businessName" name="businessName" type="text" required autocomplete="organization" />
+              </div>
+              <div class="form-field">
+                <label for="ownerName">Owner name <span class="req">*</span></label>
+                <input id="ownerName" name="ownerName" type="text" required autocomplete="name" />
+              </div>
+              <div class="form-field">
+                <label for="email">Email <span class="req">*</span></label>
+                <input id="email" name="email" type="email" required autocomplete="email" />
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone <span class="req">*</span></label>
+                <input id="phone" name="phone" type="tel" required autocomplete="tel" />
+              </div>
+              <div class="form-field">
+                <label for="industry">Industry <span class="req">*</span></label>
+                <input id="industry" name="industry" type="text" required placeholder="e.g. Dental, HVAC, Salon" />
+              </div>
+              <div class="form-field">
+                <label for="city">City <span class="req">*</span></label>
+                <input id="city" name="city" type="text" required autocomplete="address-level2" />
+              </div>
+              <div class="form-field full">
+                <label for="website">Website (if any)</label>
+                <input id="website" name="website" type="url" placeholder="https://" autocomplete="url" />
+              </div>
+              <div class="form-field full">
+                <label for="need">What they need <span class="req">*</span></label>
+                <select id="need" name="need" required>
+                  <option value="">Select…</option>
+                  <option value="Receptionist">Receptionist</option>
+                  <option value="Website">Website</option>
+                  <option value="Both">Both</option>
+                </select>
+              </div>
+              <div class="form-field full">
+                <label for="notes">Notes</label>
+                <textarea id="notes" name="notes" placeholder="Hours, services, goals, anything we should know…"></textarea>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Submit &amp; Email Lead</button>
+              <a class="btn btn-secondary" href="tel:+19378218963">Call Us</a>
+            </div>
+            <p class="form-hint">Your email app will open with a pre-filled message to <strong style="color:var(--text-muted)">apexxaiofficial@apexxaiofficial.com</strong>. Hit Send. Then choose a plan below.</p>
+          </form>
+        </div>
+      </div>
+
+      <div class="success-box" id="successBox" role="status" aria-live="polite">
+        <h3>Lead captured — check your email app</h3>
+        <p>If your mail client opened, press Send. A copy of the lead is below — use Copy if you need to paste it manually to <a href="mailto:apexxaiofficial@apexxaiofficial.com">apexxaiofficial@apexxaiofficial.com</a>.</p>
+        <div class="copy-panel" id="copyPanel"></div>
+        <div class="cta-row">
+          <button type="button" class="btn btn-secondary" id="copyBtn">Copy lead text</button>
+          <a class="btn btn-primary" href="#plans">Continue to plans →</a>
+        </div>
+      </div>
+
+      <div class="plans-section" id="plans">
+        <div class="section-head">
+          <p class="eyebrow">Step 2</p>
+          <h2>Choose your plan</h2>
+          <p class="lead">Secure Stripe Payment Links. Bundle is recommended for most local brands.</p>
+        </div>
+        <div class="pricing-grid">
+          <article class="plan">
+            <p class="plan-name">Starter</p>
+            <div class="price-lg"><span class="currency">$</span>497</div>
+            <p class="price-sub">setup · then $297/mo</p>
+            <ul class="includes">
+              <li>Frontline AI receptionist</li>
+              <li>24/7 coverage</li>
+              <li>Booking &amp; lead capture</li>
+            </ul>
+            <a class="btn btn-secondary btn-block" href="https://buy.stripe.com/9B6cN4akI9zteRg4Jo7N600" target="_blank" rel="noopener">Choose Starter</a>
+          </article>
+          <article class="plan">
+            <p class="plan-name">Pro</p>
+            <div class="price-lg"><span class="currency">$</span>997</div>
+            <p class="price-sub">setup · then $497/mo</p>
+            <ul class="includes">
+              <li>Everything in Starter</li>
+              <li>Payments + CRM sync</li>
+              <li>Priority routing</li>
+            </ul>
+            <a class="btn btn-secondary btn-block" href="https://buy.stripe.com/00wdR8eAY7rl5gG2Bg7N601" target="_blank" rel="noopener">Choose Pro</a>
+          </article>
+          <article class="plan featured">
+            <span class="badge">Featured</span>
+            <p class="plan-name">Bundle</p>
+            <div class="price-lg"><span class="currency">$</span>2,997</div>
+            <p class="price-sub">$2,997 setup · then $797/mo</p>
+            <ul class="includes">
+              <li>Pro-level receptionist</li>
+              <li>Custom Apex Forge website</li>
+              <li>Payments + CRM + routing</li>
+            </ul>
+            <a class="btn btn-primary btn-block" href="https://buy.stripe.com/aFa8wO64sdPJ9wW6Rw7N602" target="_blank" rel="noopener">Choose Bundle</a>
+          </article>
+          <article class="plan">
+            <p class="plan-name">Website Only</p>
+            <div class="price-lg"><span class="currency">$</span>1,497</div>
+            <p class="price-sub">setup · then $197/yr</p>
+            <ul class="includes">
+              <li>Custom professional website</li>
+              <li>Apex Forge build</li>
+              <li>Mobile-responsive</li>
+            </ul>
+            <a class="btn btn-secondary btn-block" href="https://buy.stripe.com/14AeVc50odPJfVkb7M7N603" target="_blank" rel="noopener">Choose Website</a>
+          </article>
+        </div>
+        <p class="pricing-note">After payment, email <a href="mailto:apexxaiofficial@apexxaiofficial.com">apexxaiofficial@apexxaiofficial.com</a> with your receipt so we can build in 24–72 hours. Prefer to talk first? <a href="tel:+19378218963">Call (937) 821-8963</a>.</p>
+        <p class="pricing-note">Not ready to buy? <a href="https://apexxaiofficial.com/leak-check">Get a free Missed-Call Leak Check</a>.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:0;">
+        <span>© 2026 ApexX AI. All rights reserved.</span>
+        <div class="footer-legal-links">
+          <a href='/privacy'>Privacy</a>
+          <a href='/terms'>Terms</a>
+          <a href='/refund'>Refunds</a>
+        </div>
+      </div>
+    </div>
+  <div class="footer-industries" style="margin-top:8px">Industries: <a href='/hvac'>HVAC</a> · <a href='/plumbing'>Plumbing</a> · <a href='/roofing'>Roofing</a> · <a href='/dental'>Dental</a> · <a href='/pest'>Pest Control</a> · <a href='/legal'>Legal</a> · <a href='/vet'>Veterinary</a> · <a href='/chiro'>Chiropractic</a> · <a href='/med-spa'>Med Spa</a> · <a href='/auto'>Auto Repair</a></div>
+</footer>
+
+  <script>
+  (function () {
+    var form = document.getElementById("leadForm");
+    var success = document.getElementById("successBox");
+    var plans = document.getElementById("plans");
+    var copyPanel = document.getElementById("copyPanel");
+    var copyBtn = document.getElementById("copyBtn");
+    var chip1 = document.getElementById("chip1");
+    var chip2 = document.getElementById("chip2");
+    var lastBody = "";
+
+    function val(id) {
+      return (document.getElementById(id).value || "").trim();
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      var businessName = val("businessName");
+      var ownerName = val("ownerName");
+      var email = val("email");
+      var phone = val("phone");
+      var industry = val("industry");
+      var city = val("city");
+      var website = val("website") || "(none)";
+      var need = val("need");
+      var notes = val("notes") || "(none)";
+
+      var subject = "ApexX AI Lead — " + businessName + " (" + need + ")";
+      var body =
+        "New ApexX AI lead from get-started form\n" +
+        "=====================================\n" +
+        "Business name: " + businessName + "\n" +
+        "Owner name: " + ownerName + "\n" +
+        "Email: " + email + "\n" +
+        "Phone: " + phone + "\n" +
+        "Industry: " + industry + "\n" +
+        "City: " + city + "\n" +
+        "Website: " + website + "\n" +
+        "What they need: " + need + "\n" +
+        "Notes: " + notes + "\n" +
+        "=====================================\n" +
+        "Source: apexxaiofficial.com/get-started\n";
+
+      lastBody = body;
+      copyPanel.textContent = body;
+
+      var mailto =
+        "mailto:apexxaiofficial@apexxaiofficial.com" +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(body);
+
+      // Show plans immediately so they can pay even if mail client is blocked
+      success.classList.add("show");
+      plans.classList.add("show");
+      chip1.classList.remove("active");
+      chip1.classList.add("done");
+      chip2.classList.add("active");
+
+      setTimeout(function () {
+        success.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 150);
+
+      // 1) Try FormSubmit AJAX so the lead emails even if they never open mailto / never pay
+      var payload = {
+        _subject: subject,
+        business_name: businessName,
+        owner_name: ownerName,
+        email: email,
+        phone: phone,
+        industry: industry,
+        city: city,
+        website: website,
+        need: need,
+        notes: notes,
+        source: "apexxaiofficial.com/get-started",
+        message: body
+      };
+      try {
+        fetch("https://formsubmit.co/ajax/apexxaiofficial@apexxaiofficial.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify(payload)
+        }).catch(function () {});
+      } catch (err) {}
+
+      // 2) Also open mailto as a backup the visitor can Send
+      window.location.href = mailto;
+    });
+
+    copyBtn.addEventListener("click", function () {
+      var text = lastBody || copyPanel.textContent;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () {
+          copyBtn.textContent = "Copied";
+          setTimeout(function () { copyBtn.textContent = "Copy lead text"; }, 2000);
+        });
+      } else {
+        var range = document.createRange();
+        range.selectNodeContents(copyPanel);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        try { document.execCommand("copy"); } catch (err) {}
+        copyBtn.textContent = "Copied";
+        setTimeout(function () { copyBtn.textContent = "Copy lead text"; }, 2000);
+      }
+    });
+
+    // Allow skipping straight to plans (e.g. returning visitors)
+    if (location.hash === "#plans") {
+      plans.classList.add("show");
+      chip2.classList.add("active");
+    }
+  })();
+  </script>
+<a class="apexx-sticky-call" href="tel:+19378218963" aria-label="Call (937) 821-8963">&#128222; Call (937) 821-8963</a>
+<style>.apexx-sticky-call{position:fixed;right:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;gap:6px;padding:14px 20px;min-height:48px;border-radius:999px;background:#16a34a;color:#fff!important;font-weight:700;font-size:16px;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.3)}@media(max-width:640px){.apexx-sticky-call{left:12px;right:12px;bottom:12px;justify-content:center}body{padding-bottom:80px}}</style>
+</body>
+</html>

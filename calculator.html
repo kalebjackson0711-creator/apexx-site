@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- STATUS 2026-11-09: Missed-Call Revenue Calculator + SMS consent (form missed-call-calculator).
+       Netlify Forms (data-netlify + honeypot). Consent version calculator-sms-v1.0-2026-11-09.
+       Phone on page: (937) 821-8963 only. Domain: apexxaiofficial.com only. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Missed-Call Revenue Calculator — ApexX AI</title>
+  <meta name="description" content="See how much revenue missed calls may be costing your shop each month. Free calculator from ApexX AI. Optional SMS updates with separate consent." />
+  <link rel="canonical" href="https://apexxaiofficial.com/calculator" />
+  <meta name="theme-color" content="#0B0B0B" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .calc-result {
+      margin: 20px 0 28px;
+      padding: 20px 22px;
+      border-radius: 12px;
+      border: 1px solid rgba(196,30,58,0.45);
+      background: linear-gradient(135deg, rgba(196,30,58,0.18), rgba(255,255,255,0.03));
+    }
+    .calc-result .label { font-size: 0.9rem; color: var(--text-muted, #b8b8b8); margin: 0 0 6px; }
+    .calc-result .big {
+      font-family: "Bebas Neue", "Barlow Condensed", sans-serif;
+      font-size: clamp(2.2rem, 6vw, 3.2rem);
+      letter-spacing: 0.02em;
+      color: #fff;
+      line-height: 1;
+      margin: 0 0 8px;
+    }
+    .calc-result .sub { margin: 0; font-size: 0.95rem; color: var(--text-muted, #b8b8b8); }
+    .consent-check {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin: 8px 0 4px;
+      padding: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+    }
+    .consent-check input[type="checkbox"] {
+      margin-top: 4px;
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      accent-color: var(--blood, #c41e3a);
+    }
+    .consent-check label {
+      font-size: 0.92rem;
+      line-height: 1.45;
+      color: var(--text-muted, #b8b8b8);
+      cursor: pointer;
+    }
+    .consent-check label strong { color: var(--white, #fff); font-weight: 600; }
+    .consent-note {
+      font-size: 0.85rem;
+      color: var(--text-muted, #b8b8b8);
+      margin: 0 0 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="call-strip">Talk to ApexX AI · <a href="tel:+19378218963">(937) 821-8963</a></div>
+
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a aria-label="ApexX AI home" class="logo" href="/">
+        <span class="logo-mark" aria-hidden="true"><i>AX</i></span>
+        APEX<span>X</span> AI
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="/">Home</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/get-started">Get Started</a>
+        <a class="active" href="/calculator">Calculator</a>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn btn-secondary" href="tel:+19378218963">Call Us</a>
+        <a class="btn btn-primary" href="#calcForm">Get My Number</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Free · No purchase required</p>
+        <h1>Missed-Call Revenue Calculator</h1>
+        <p class="legal-meta">Enter how many calls you miss and what a typical job is worth. See the monthly revenue that may be walking to whoever answers first.</p>
+      </div>
+    </div>
+
+    <div class="container gs-wrap">
+      <div class="steps" style="margin-bottom:32px;">
+        <div class="step"><h3>Run the numbers</h3><p>Missed calls per week × average job value.</p></div>
+        <div class="step"><h3>See the leak</h3><p>Estimated monthly revenue at risk, using your inputs.</p></div>
+        <div class="step"><h3>Optional follow-up</h3><p>Leave your info. SMS only if you check the consent box.</p></div>
+      </div>
+
+      <div class="success-box" id="successBox" role="status" aria-live="polite">
+        <h3 id="thanksTitle">Got it. Thanks.</h3>
+        <p id="thanksBody">We'll follow up by email. To hear our AI receptionist answer like it would for your customers, call <a href="tel:+19378218963">(937) 821-8963</a>.</p>
+        <p><a class="btn btn-secondary" href="/">Back to Home</a> <a class="btn btn-primary" href="tel:+19378218963">Call (937) 821-8963</a></p>
+      </div>
+
+      <div class="form-card" id="formCard">
+        <h2 class="h3" style="margin-bottom:8px;">Calculate your missed-call leak</h2>
+        <p style="color:var(--text-muted);margin-bottom:20px;font-size:0.98rem;">Required fields marked <span class="req">*</span>. SMS consent is optional and unchecked by default.</p>
+
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="missed_calls_week_ui">Missed calls per week <span class="req">*</span></label>
+            <input id="missed_calls_week_ui" type="number" min="0" max="500" step="1" value="8" inputmode="numeric" />
+          </div>
+          <div class="form-field">
+            <label for="avg_job_value_ui">Average job value ($) <span class="req">*</span></label>
+            <input id="avg_job_value_ui" type="number" min="0" max="100000" step="1" value="450" inputmode="decimal" />
+          </div>
+        </div>
+
+        <div class="calc-result" id="calcResult" aria-live="polite">
+          <p class="label">Estimated monthly revenue at risk</p>
+          <p class="big" id="calcMonthly">$14,400</p>
+          <p class="sub" id="calcDetail">8 missed calls/week × $450 × ~4 weeks. Illustrative only — your mix will differ.</p>
+        </div>
+
+        <form id="calcForm" name="missed-call-calculator" method="POST" action="/calculator?submitted=1" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="missed-call-calculator" />
+          <input type="hidden" name="source" value="apexxaiofficial.com/calculator" />
+          <input type="hidden" name="form_version" value="calculator-sms-v1.0-2026-11-09" />
+          <input type="hidden" name="missed_calls_week" id="missed_calls_week" value="8" />
+          <input type="hidden" name="avg_job_value" id="avg_job_value" value="450" />
+          <input type="hidden" name="est_monthly_loss" id="est_monthly_loss" value="14400" />
+          <input type="hidden" name="sms_consent_text_verbatim" id="smsConsentTextVerbatim" value="By checking this box, I agree to receive recurring automated marketing and informational text messages from ApexX AI at the mobile number I provided about ApexX AI products and services. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of any purchase. See our Privacy Policy and Terms." />
+          <input type="hidden" name="call_consent_text_verbatim" id="callConsentTextVerbatim" value="By checking this box, I agree that ApexX AI may call me at the phone number I provided about ApexX AI products and services, including calls that use AI-generated or artificial/prerecorded voice and automated technology. Consent is not a condition of any purchase. I can opt out anytime by saying stop on a call." />
+          <p style="display:none;" aria-hidden="true"><label>Leave this empty: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="full_name">Full name <span class="req">*</span></label>
+              <input id="full_name" name="full_name" type="text" required autocomplete="name" />
+            </div>
+            <div class="form-field">
+              <label for="business_name">Business name <span class="req">*</span></label>
+              <input id="business_name" name="business_name" type="text" required autocomplete="organization" />
+            </div>
+            <div class="form-field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="form-field">
+              <label for="mobile_phone">Mobile phone <span class="req">*</span></label>
+              <input id="mobile_phone" name="mobile_phone" type="tel" required autocomplete="tel" inputmode="tel" placeholder="(555) 555-5555" />
+            </div>
+          </div>
+
+          <div class="form-field full" style="margin-top:8px;">
+            <div class="consent-check">
+              <input type="checkbox" id="sms_consent" name="sms_consent" value="yes" />
+              <label for="sms_consent">By checking this box, I agree to receive <strong>recurring automated marketing and informational text messages</strong> from <strong>ApexX AI</strong> at the mobile number I provided about ApexX AI products and services. <strong>Message frequency varies.</strong> <strong>Msg &amp; data rates may apply.</strong> Reply <strong>STOP</strong> to opt out, <strong>HELP</strong> for help. <strong>Consent is not a condition of any purchase.</strong> See our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a>.</label>
+            </div>
+            <p class="consent-note">Leave unchecked for email-only follow-up. No marketing texts go out unless you check this box. Texting stays off until A2P 10DLC is registered.</p>
+
+            <div class="consent-check">
+              <input type="checkbox" id="call_consent" name="call_consent" value="yes" />
+              <label for="call_consent">Optional: I agree that <strong>ApexX AI</strong> may <strong>call</strong> me at the number I provided about ApexX AI products and services, including calls that use <strong>AI-generated or artificial/prerecorded voice</strong> and automated technology. Consent is not a condition of any purchase. I can opt out by saying <strong>stop</strong> on a call.</label>
+            </div>
+            <p class="consent-note">Leave unchecked = no AI sales call. Want to hear the product now? Call <a href="tel:+19378218963">(937) 821-8963</a> — our AI receptionist will pick up.</p>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Send Me My Number</button>
+          </div>
+          <p class="form-hint">Submissions are logged for compliance (timestamp, IP, consent text version, checkbox state). Questions? Call <a href="tel:+19378218963">(937) 821-8963</a>.</p>
+        </form>
+      </div>
+
+      <p class="pricing-note" style="margin-top:32px;">Want to hear the AI receptionist now? Call <a href="tel:+19378218963">(937) 821-8963</a>. Or <a href="/get-started">get started</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:0;">
+        <span>© 2026 ApexX AI. All rights reserved.</span>
+        <div class="footer-legal-links">
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="/refund">Refunds</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  (function () {
+    function money(n) {
+      try { return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 }); }
+      catch (e) { return "$" + Math.round(n); }
+    }
+    function recalc() {
+      var missed = Math.max(0, parseFloat(document.getElementById("missed_calls_week_ui").value) || 0);
+      var avg = Math.max(0, parseFloat(document.getElementById("avg_job_value_ui").value) || 0);
+      var monthly = missed * avg * 4;
+      document.getElementById("calcMonthly").textContent = money(monthly);
+      document.getElementById("calcDetail").textContent =
+        missed + " missed calls/week × " + money(avg) + " × ~4 weeks. Illustrative only — your mix will differ.";
+      document.getElementById("missed_calls_week").value = String(missed);
+      document.getElementById("avg_job_value").value = String(avg);
+      document.getElementById("est_monthly_loss").value = String(Math.round(monthly));
+    }
+    ["missed_calls_week_ui", "avg_job_value_ui"].forEach(function (id) {
+      var el = document.getElementById(id);
+      el.addEventListener("input", recalc);
+      el.addEventListener("change", recalc);
+    });
+    recalc();
+
+    var form = document.getElementById("calcForm");
+    if (form) {
+      form.addEventListener("submit", function () {
+        recalc();
+        try {
+          var first = (document.getElementById("full_name").value || "").trim().split(/\s+/)[0] || "";
+          var phone = (document.getElementById("mobile_phone").value || "").trim();
+          var email = (document.getElementById("email").value || "").trim();
+          var sms = document.getElementById("sms_consent").checked;
+          var call = document.getElementById("call_consent").checked;
+          var monthly = document.getElementById("est_monthly_loss").value;
+          sessionStorage.setItem("calc_thanks", JSON.stringify({
+            first: first, phone: phone, email: email, sms: sms, call: call, monthly: monthly
+          }));
+        } catch (e) { /* ignore */ }
+      });
+    }
+
+    function escapeHtml(s) {
+      return String(s).replace(/[&<>"']/g, function (c) {
+        return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c];
+      });
+    }
+
+    function showThanks() {
+      document.getElementById("formCard").style.display = "none";
+      document.getElementById("successBox").classList.add("show");
+      var data = null;
+      try { data = JSON.parse(sessionStorage.getItem("calc_thanks") || "null"); } catch (e) { data = null; }
+      var title = document.getElementById("thanksTitle");
+      var body = document.getElementById("thanksBody");
+      var first = data && data.first ? data.first : "";
+      var phone = data && data.phone ? data.phone : "the number you provided";
+      var email = data && data.email ? data.email : "the email you provided";
+      var monthly = data && data.monthly ? data.monthly : "";
+      title.textContent = first ? ("Got it. Thanks, " + first + ".") : "Got it. Thanks.";
+      var parts = [];
+      if (monthly) {
+        parts.push("Your calculator estimate was about <strong>$" + escapeHtml(String(Math.round(Number(monthly) || 0)).replace(/\B(?=(\d{3})+(?!\d))/g, ",")) + "/month</strong> in missed-call revenue at risk.");
+      }
+      if (data && data.sms) {
+        parts.push("You opted in to texts at <strong>" + escapeHtml(phone) + "</strong>. Reply STOP anytime to opt out, HELP for help. Msg &amp; data rates may apply. Texts stay paused until our business texting registration (10DLC) is approved.");
+      } else {
+        parts.push("No marketing texts will be sent because SMS consent was not checked.");
+      }
+      if (data && data.call) {
+        parts.push("You also allowed a callback. ApexX AI may call <strong>" + escapeHtml(phone) + "</strong> during 8am–9pm your local time.");
+      } else {
+        parts.push("We'll email you at <strong>" + escapeHtml(email) + "</strong>. No AI sales call goes out because call consent was not checked.");
+      }
+      parts.push("Want to hear it? Call <a href=\"tel:+19378218963\">(937) 821-8963</a> and our AI receptionist will pick up, same as it would for your customers.");
+      body.innerHTML = parts.join(" ");
+    }
+
+    if (/[?&]submitted=1/.test(window.location.search)) {
+      showThanks();
+    }
+  })();
+  </script>
+</body>
+</html>

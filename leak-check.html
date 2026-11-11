@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <!-- STATUS 2026-10-16: DEPLOYED AND LIVE on apexxaiofficial.com (Netlify site venerable-biscotti-571979).
+       Form uses Netlify Forms (data-netlify); the lead watch counts this form's submissions. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free Missed-Call Leak Check — ApexX AI</title>
+  <meta name="description" content="Free Missed-Call Leak Check: we call your business line twice, once during work hours and once after hours, and send a 1-page report of what callers hear and what it may be costing you." />
+  <meta name="theme-color" content="#0B0B0B" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a aria-label='ApexX AI home' class='logo' href='/'>
+        <span class="logo-mark" aria-hidden="true"><i>AX</i></span>
+        APEX<span>X</span> AI
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href='/'>Home</a>
+        <a href='/#pricing'>Pricing</a>
+        <a href='/get-started'>Get Started</a>
+        <a class='active' href='/leak-check'>Free Leak Check</a>
+      </nav>
+      <div class="nav-cta">
+        <a class='btn btn-primary' href='#leakForm'>Get My Free Leak Check</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Menu" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <p class="eyebrow">Free · No obligation</p>
+        <h1>Free Missed-Call Leak Check</h1>
+        <p class="legal-meta">We call your shop twice, once during work hours and once after hours, and show you exactly what your customers hear, plus what it may be costing you.</p>
+      </div>
+    </div>
+
+    <div class="container gs-wrap">
+      <div class="steps" style="margin-bottom:32px;">
+        <div class="step"><h3>Tell us about your shop</h3><p>8 quick fields. Takes a minute.</p></div>
+        <div class="step"><h3>We call twice</h3><p>Two test calls, like a new customer would make. That's it.</p></div>
+        <div class="step"><h3>You get a 1-page report</h3><p>What happened on each call and your estimated monthly revenue at risk, using your own numbers.</p></div>
+      </div>
+
+      <div class="success-box" id="successBox" role="status" aria-live="polite">
+        <h3>Got it. Your Leak Check is booked.</h3>
+        <p>We'll make 2 test calls (one during work hours, one after hours) and email your 1-page report within 1 business day of the second call.</p>
+        <p><a class="btn btn-secondary" href="/">Back to Home</a></p>
+      </div>
+
+      <div class="form-card" id="formCard">
+        <h2 class="h3" style="margin-bottom:8px;">Request your free Leak Check</h2>
+        <p style="color:var(--text-muted);margin-bottom:28px;font-size:0.98rem;">All fields required.</p>
+        <form id="leakForm" name="leak-check" method="POST" action="/leak-check?requested=1" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="leak-check" />
+          <input type="hidden" name="source" value="apexxaiofficial.com/leak-check" />
+          <p style="display:none;"><label>Leave this empty: <input name="bot-field" /></label></p>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="ownerName">Your name <span class="req">*</span></label>
+              <input id="ownerName" name="ownerName" type="text" required autocomplete="name" />
+            </div>
+            <div class="form-field">
+              <label for="businessName">Business name <span class="req">*</span></label>
+              <input id="businessName" name="businessName" type="text" required autocomplete="organization" />
+            </div>
+            <div class="form-field">
+              <label for="trade">Trade <span class="req">*</span></label>
+              <select id="trade" name="trade" required>
+                <option value="">Select…</option>
+                <option>Plumbing</option><option>HVAC</option><option>Electrical</option><option>Roofing</option>
+                <option>Auto repair</option><option>Barbershop / Salon</option><option>Restaurant</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="phone">Business phone <span class="req">*</span></label>
+              <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="(937) 821-8963" />
+            </div>
+            <div class="form-field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input id="email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="form-field">
+              <label for="city">City <span class="req">*</span></label>
+              <input id="city" name="city" type="text" required autocomplete="address-level2" />
+            </div>
+            <div class="form-field">
+              <label for="missedPerWeek">Missed calls per week <span class="req">*</span></label>
+              <select id="missedPerWeek" name="missedPerWeek" required>
+                <option value="">Select…</option>
+                <option>0–5</option><option>6–10</option><option>11–20</option><option>20+</option><option>Not sure</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="avgTicket">Average job value ($) <span class="req">*</span></label>
+              <input id="avgTicket" name="avgTicket" type="number" required min="0" step="1" placeholder="e.g. 350" />
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Get My Free Leak Check</button>
+          </div>
+          <p class="form-hint">By submitting, you confirm you own or manage this business and agree that ApexX AI may place <strong>2 test calls</strong> to the number above (one during work hours, one after hours). Free, no obligation. We only use your info for this Leak Check and to follow up about it. See our <a href='/privacy'>Privacy Policy</a>.</p>
+        </form>
+      </div>
+
+      <p class="pricing-note" style="margin-top:32px;">Already know you're losing calls? ApexX AI puts an AI receptionist on your same number and can have you live within 72 hours of finished onboarding. <a href='/get-started'>Get started at apexxaiofficial.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:0;">
+        <span>© 2026 ApexX AI. All rights reserved.</span>
+        <div class="footer-legal-links">
+          <a href='/privacy'>Privacy</a>
+          <a href='/terms'>Terms</a>
+          <a href='/refund'>Refunds</a>
+        </div>
+      </div>
+    </div>
+  <div class="footer-industries" style="margin-top:8px">Industries: <a href='/hvac'>HVAC</a> · <a href='/plumbing'>Plumbing</a> · <a href='/roofing'>Roofing</a> · <a href='/dental'>Dental</a> · <a href='/pest'>Pest Control</a> · <a href='/legal'>Legal</a> · <a href='/vet'>Veterinary</a> · <a href='/chiro'>Chiropractic</a> · <a href='/med-spa'>Med Spa</a> · <a href='/auto'>Auto Repair</a></div>
+</footer>
+
+  <script>
+  (function () {
+    if (/[?&]requested=1/.test(window.location.search)) {
+      document.getElementById("formCard").style.display = "none";
+      document.getElementById("successBox").classList.add("show");
+    }
+  })();
+  </script>
+<a class="apexx-sticky-call" href="tel:+19378218963" aria-label="Call (937) 821-8963">&#128222; Call (937) 821-8963</a>
+<style>.apexx-sticky-call{position:fixed;right:16px;bottom:16px;z-index:9999;display:inline-flex;align-items:center;gap:6px;padding:14px 20px;min-height:48px;border-radius:999px;background:#16a34a;color:#fff!important;font-weight:700;font-size:16px;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.3)}@media(max-width:640px){.apexx-sticky-call{left:12px;right:12px;bottom:12px;justify-content:center}body{padding-bottom:80px}}</style>
+</body>
+</html>
