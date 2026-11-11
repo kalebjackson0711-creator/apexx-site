@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <!-- STATUS 2026-11-05: READY FOR DEPLOY — PEWC consent form (form name pewc-consent).
-       Form posts to ApexX intake /web/form (2026-11-11; was Netlify Forms). Honeypot kept. Archive this HTML with form_version v1.0-2026-11-05.
+       Form posts to Cloudflare Worker apexx-forms /submit (2026-11-11; was Netlify Forms). Honeypot kept. Archive this HTML with form_version v1.0-2026-11-05.
        Phone on page: (937) 821-8963 only. Domain: apexxaiofficial.com only. -->
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Request a Callback — ApexX AI</title>
@@ -94,7 +94,7 @@
       <div class="form-card" id="formCard">
         <h2 class="h3" style="margin-bottom:8px;">Request a callback</h2>
         <p style="color:var(--text-muted);margin-bottom:28px;font-size:0.98rem;">Required fields marked <span class="req">*</span>. Call/text consent is optional and unchecked by default.</p>
-        <form id="consentForm" name="pewc-consent" method="POST" action="https://tripping-provolone-smokiness.ngrok-free.dev/web/form">
+        <form id="consentForm" name="pewc-consent" method="POST" action="https://apexx-forms.apexxaiofficial.workers.dev/submit">
           <input type="hidden" name="form-name" value="pewc-consent" />
           <input type="hidden" name="source" value="apexxaiofficial.com/consent" />
           <input type="hidden" name="form_version" value="v1.0-2026-11-05" />
@@ -234,7 +234,7 @@
   })();
   </script>
   <script>
-  /* 2026-11-11: Netlify Forms replaced. Posts to ApexX intake (/web/form); same relay gates (honeypot, IP rate, DNC, duplicate). */
+  /* 2026-11-11: Posts to Cloudflare Worker apexx-forms (stores durably, then forwards to the ApexX box intake; box keeps DNC, duplicate and consent-ledger gates). */
   (function () {
     var f = document.getElementById("consentForm");
     if (!f) return;
@@ -243,7 +243,7 @@
       var btn = f.querySelector("button[type=submit]"); if (btn) { btn.disabled = true; }
       var d = {}; new FormData(f).forEach(function (v, k) { d[k] = v; });
       d.page_url = location.href.split("?")[0];
-      fetch("https://tripping-provolone-smokiness.ngrok-free.dev/web/form", { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(d) })
+      fetch("https://apexx-forms.apexxaiofficial.workers.dev/submit", { method: "POST", headers: { "Content-Type": "text/plain" }, body: JSON.stringify(d) })
         .then(function (r) { if (!r.ok) throw new Error(r.status); location.href = "/consent?submitted=1"; })
         .catch(function () {
           if (btn) { btn.disabled = false; }
