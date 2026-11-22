@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ApexX AI · TikTok connection</title>
+<style>body{font-family:system-ui,sans-serif;background:#0b0b0d;color:#eee;max-width:640px;margin:60px auto;padding:0 20px}code{background:#222;padding:6px 10px;border-radius:6px;word-break:break-all;display:block;margin:10px 0}</style>
+</head><body>
+<h1>TikTok connection</h1>
+<p id="msg">Reading authorization result…</p>
+<code id="code" hidden></code>
+<p id="state" hidden></p>
+<script>
+const p=new URLSearchParams(location.search);
+const m=document.getElementById('msg');
+if(p.get('code')){m.textContent='Authorized. Authorization code:';const c=document.getElementById('code');c.textContent=p.get('code');c.hidden=false;
+ if(p.get('state')){const s=document.getElementById('state');s.textContent='state: '+p.get('state');s.hidden=false;}}
+else if(p.get('error')){m.textContent='Authorization failed: '+p.get('error')+' '+(p.get('error_description')||'');}
+else{m.textContent='ApexX AI uses this page to complete TikTok account connections for its own content accounts.';}
+</script>
+</body></html>
